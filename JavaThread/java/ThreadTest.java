@@ -1,9 +1,14 @@
+package java;
+
 public class ThreadTest {
     public static void main(String[] args) {
-        //3. create a  MyThread class instance
+        //3. create a  java.MyThread class instance
         MyThread t1 = new MyThread();
         //4. start
         t1.start();
+
+        MyThread t2 = new MyThread();
+        t2.start();
         for (int i = 0; i < 100; i++) {
             if(i%2 != 0){
                 System.out.println(Thread.currentThread().getName()+":"+i+"*****");
