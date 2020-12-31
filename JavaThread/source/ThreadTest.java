@@ -1,4 +1,4 @@
-package java;
+package source;
 
 public class ThreadTest {
     public static void main(String[] args) {
