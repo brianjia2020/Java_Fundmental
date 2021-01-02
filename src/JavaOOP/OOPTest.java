@@ -6,6 +6,8 @@
  *
  * 4. class: is a general abstraction of one kind of things
  *    instance: a realized existing object(a real implementation of class)
+ * 5. OOP design is the design of class and its elements
+ *
  */
 public class OOPTest {
     
