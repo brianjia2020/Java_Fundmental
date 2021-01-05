@@ -1,3 +1,5 @@
+package day08.JavaAlgorithm;
+
 import java.util.Arrays;
 
 public class BubbleSort {

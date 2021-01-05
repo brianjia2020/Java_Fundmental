@@ -1,3 +1,5 @@
+package day08.JavaAlgorithm;
+
 import org.junit.Test;
 
 import java.util.Arrays;

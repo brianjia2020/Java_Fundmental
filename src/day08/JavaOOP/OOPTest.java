@@ -1,3 +1,5 @@
+package day08.JavaOOP;
+
 /**
  *
  * 1. java class and class elements: attribute, method, constructor, inner class, code block

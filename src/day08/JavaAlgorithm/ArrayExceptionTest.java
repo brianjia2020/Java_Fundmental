@@ -1,3 +1,5 @@
+package day08.JavaAlgorithm;
+
 /**
  * array common Exception
  * 1. arrayIndexOutOfBoundsException
