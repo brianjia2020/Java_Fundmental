@@ -8,8 +8,17 @@ package day10;
  *      specific rights.
  * 2. OOP encapsulation
  *      private all attributes
- *      (public) getter to get attribute value
- *      (public) setter to set attribute value
+ *          (public) getter to get attribute value
+ *          (public) setter to set attribute value
+ *      private methods -- methods only used internally
+ *      encapsulation is to hide whatever needs to be hidden, uncover whatever needs to be seen by the users
+ *      In Java, there are four access control key words
+ *          private - inside the class
+ *          default - all of above, same package
+ *          protected - all of above, sub-class from different package
+ *          public - all of above, same project
+ *      describe class and attribute, method, constructor, inner class
+ *
  */
 public class AnimalTest {
     public static void main(String[] args) {
