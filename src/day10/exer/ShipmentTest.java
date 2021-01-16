@@ -1,9 +1,8 @@
 package day10.exer;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import org.junit.Test;
+
+import java.util.*;
 
 public class ShipmentTest{
 
@@ -25,6 +24,81 @@ public class ShipmentTest{
 
     }
 
+    @Test
+    public void test(){
+        List<Leg> legs = new ArrayList<>();
+        legs.add(new Leg(40));
+        legs.add(new Leg(30));
+        legs.add(new Leg(30));
+        legs = calculateCost(10,legs);
+        legs.forEach(System.out::println);
+    }
+
+    public List<Leg> calculateCost(int totalCost, List<Leg> legs){
+        double perMileCost = 0;
+        double check = 0;
+        int allDistance = 0;
+        for(Leg leg: legs) {
+            allDistance += leg.getDistance();
+        }
+        perMileCost = (double) totalCost/allDistance;
+        for (Leg leg: legs){
+            double price = perMileCost * leg.getDistance();
+            price = Math.round(price*100.0)/100.0;
+            check += price;
+            leg.setPrice(price);
+        }
+
+        //check the difference,
+        if(totalCost - check!=0){
+            double diff = Math.round((totalCost - check)*100.0)/100.0;
+            double newPrice = legs.get(legs.size()-1).getPrice() + diff;
+            legs.get(legs.size()-1).setPrice(newPrice);
+        }
+        return legs;
+    }
+
+}
+
+class Leg {
+    private int distance;
+    private double price;
+
+    public Leg() {
+    }
+
+    public Leg(int distance) {
+        this.distance = distance;
+    }
+
+    public Leg(int distance, int price){
+        this.distance = distance;
+        this.price = price;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Leg{" +
+                "distance=" + distance +
+                ", price=" + price +
+                '}';
+    }
 }
 
 class Shipment {
