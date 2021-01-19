@@ -5,12 +5,12 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-public class SelectionSort {
+public class InsertionSort {
     @Test
     public void test1(){
         Shipment[] shipments = new Shipment[5];
         shipments[0] = new Shipment();
-        shipments[0].setDistance(3);
+        shipments[0].setDistance(11);
         shipments[1] = new Shipment();
         shipments[1].setDistance(9);
         shipments[2] = new Shipment();
@@ -21,10 +21,15 @@ public class SelectionSort {
         shipments[4].setDistance(-2);
         for(Shipment shipment: shipments) System.out.println(shipment.getDistance());
         System.out.println();
-        selectionSort(shipments);
+        insertionSort(shipments);
         for(Shipment shipment: shipments) System.out.println(shipment.getDistance());
     }
 
+    // test on 80,000 data points to sort and compare
+
+    /**
+     * roughly 7 to 8s, still better than bubble sort
+     */
     @Test
     public void test2(){
         //1. create 80,000 array of shipments
@@ -34,33 +39,30 @@ public class SelectionSort {
             shipments[i] = new Shipment((int) (Math.random() * 8000000),0);
         }
         long start = System.currentTimeMillis();
-//        Arrays.sort(shipments,(o1, o2)-> (int) (o1.getDistance()-o2.getDistance()));
-        selectionSort(shipments);
+        insertionSort(shipments);
         long end = System.currentTimeMillis();
         System.out.println((end-start)/1000F);
     }
 
     /**
-     * time complexity: O(n^2)
-     * It's faster than bubbleSort since it's doing much much less exchange
-     * roughly 6.7s compared to 22s
-     * but still not as fast as Arrays.sort() 0.06s
+     * Insertion Sort:
      * @param shipments
      */
-    public static void selectionSort(Shipment[] shipments){
-        Shipment temp = null;
-        for(int i=0;i<shipments.length-1;i++) {
-            int minIndex = i;
-            for (int j = i+1; j < shipments.length; j++) {
-                if (shipments[j].getDistance() < shipments[minIndex].getDistance()) {
-                    minIndex = j;
-                }
+    public static void insertionSort(Shipment[] shipments){
+        Shipment temp;
+        for(int i = 1;i<shipments.length;i++){
+            temp = shipments[i];
+            int insertIndex = i-1;
+            //find the insertion position by loop
+            //1. insertIndex>=0 makes sure it does not get out of bound
+            //2. shipments[i].getDistance()<=shipments[insertIndex].getDistance()
+            //   the position have not found proper position
+            while(insertIndex>=0&&temp.getDistance()<shipments[insertIndex].getDistance()){
+                shipments[insertIndex+1] = shipments[insertIndex];
+                insertIndex--;
             }
-            //if i is not the smallest, then exchange else continue
-            if(minIndex!=i) {
-                temp = shipments[i];
-                shipments[i] = shipments[minIndex];
-                shipments[minIndex] = temp;
+            if(insertIndex+1 !=i ) {
+                shipments[insertIndex + 1] = temp;
             }
         }
     }
