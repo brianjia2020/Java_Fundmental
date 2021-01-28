@@ -1,8 +1,6 @@
 package com.brian.JavaDS_Algorithm.graph;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Graph {
 
@@ -17,23 +15,37 @@ public class Graph {
 
     public static void main(String[] args) {
         //test the code
-        int n = 5;
-        String[] vertexValue = {"A","B","C","D","E"};
+        int n = 8;
+        String[] vertexValue = {"1","2","3","4","5","6","7","8"};
         Graph graph = new Graph(n);
         for(String vertex: vertexValue) {
             graph.insertVertex(vertex);
         }
+
         //add edges
         //A-B,A-C,B-C,B-D,B-E
+//        graph.insertEdge(0,1,1);
+//        graph.insertEdge(0,2,1);
+//        graph.insertEdge(1,2,1);
+//        graph.insertEdge(1,3,1);
+//        graph.insertEdge(1,4,1);
+
         graph.insertEdge(0,1,1);
         graph.insertEdge(0,2,1);
-        graph.insertEdge(1,2,1);
         graph.insertEdge(1,3,1);
         graph.insertEdge(1,4,1);
+        graph.insertEdge(3,7,1);
+        graph.insertEdge(4,7,1);
+        graph.insertEdge(2,5,1);
+        graph.insertEdge(2,6,1);
+        graph.insertEdge(5,6,1);
         graph.showGraph();
 
 
+        //A->B->C->D->E
         graph.dfs();
+        //A->B->C->D->E
+        graph.BFS();
     }
 
     public Graph(int n) {
@@ -42,7 +54,6 @@ public class Graph {
         vertexList = new ArrayList<String>(n);
         //default to 0 edges
         numOfEdges = 0;
-        isVisited = new boolean[n];
     }
 
     //get the first neighbour vertex index
@@ -82,9 +93,48 @@ public class Graph {
 
     //reload on dfs, loop over all the vertex and do dfs
     public void dfs(){
+        isVisited = new boolean[getNumberOfVertex()];
         //loop over all vertexList
         for(int i=0;i<vertexList.size();i++){
             if(!isVisited[i]) dfs(isVisited,i);
+        }
+    }
+
+    //BFS
+    public void BFS(){
+        isVisited = new boolean[getNumberOfVertex()];
+        for(int i=0;i<getNumberOfVertex();i++){
+            if(!isVisited[i]) BFS(isVisited,i);
+        }
+    }
+
+    //a method for one node's BFS
+    private void BFS(boolean[] isVisited,int i){
+        int u; //the first vertex in the queue
+        int w; //the neighbour vertex
+        // Queue, a recorder on the sequence of vertex
+        LinkedList<Integer> queue = new LinkedList<>();
+        //visit the node
+        System.out.println(getValueByIndex(i)+"->");
+        isVisited[i] = true;
+        //add the vertex to the queue
+        queue.addLast(i);
+        while (!queue.isEmpty()){
+            // take the head node
+            u = queue.removeFirst();
+            // get the
+            w = getFirstNeighbour(u);
+            //as long as u is not -1,
+            while (w!=-1) {
+                //check visited
+                if(!isVisited[w]) {
+                    System.out.print(getValueByIndex(w)+"->");
+                    isVisited[w] = true;
+                    queue.addLast(w);
+                }
+                //based on u, found the next neighbor of w
+                w = getNextNeighbour(u,w); // this is the place of showing the BFS
+            }
         }
     }
 
