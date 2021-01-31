@@ -14,7 +14,7 @@ interface Interface1{
     void operation5();
 }
 
-class B implements Interface1{
+class B implements com.brian.Java_OOD.principle.interfaceSegregation.Interface1 {
 
     @Override
     public void operation1() {
@@ -42,7 +42,7 @@ class B implements Interface1{
     }
 }
 
-class D implements Interface1{
+class D implements com.brian.Java_OOD.principle.interfaceSegregation.Interface1 {
 
     @Override
     public void operation1() {
@@ -71,30 +71,30 @@ class D implements Interface1{
 }
 
 class A {//class A depends on B through interface i but it only uses the 1,2,3 method
-    public void depend1(Interface1 i){
+    public void depend1(com.brian.Java_OOD.principle.interfaceSegregation.Interface1 i){
         i.operation1();
     }
 
-    public void depend2(Interface1 i){
+    public void depend2(com.brian.Java_OOD.principle.interfaceSegregation.Interface1 i){
         i.operation2();
     }
 
-    public void depend3(Interface1 i){
+    public void depend3(com.brian.Java_OOD.principle.interfaceSegregation.Interface1 i){
         i.operation3();
     }
 
 }
 
 class C {
-    public void depend1(Interface1 i){
+    public void depend1(com.brian.Java_OOD.principle.interfaceSegregation.Interface1 i){
         i.operation1();
     }
 
-    public void depend4(Interface1 i){
+    public void depend4(com.brian.Java_OOD.principle.interfaceSegregation.Interface1 i){
         i.operation4();
     }
 
-    public void depend5(Interface1 i){
+    public void depend5(com.brian.Java_OOD.principle.interfaceSegregation.Interface1 i){
         i.operation5();
     }
 }
