@@ -2,6 +2,7 @@ package com.brian.Java_OOD.singleton.type7;
 
 /**
  * enum type
+ * Recommended!!!!!
  */
 public class SingletonTest7 {
     public static void main(String[] args) {

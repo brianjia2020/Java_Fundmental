@@ -2,7 +2,7 @@ package com.brian.Java_OOD.singleton.type5;
 
 /**
  * Thread safe and efficient compared to type4
- * Recommended
+ * Recommended!!!!!
  */
 public class SingletonTest5 {
     public static void main(String[] args) {

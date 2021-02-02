@@ -6,7 +6,7 @@ import com.brian.Java_OOD.singleton.type4.SingletonTest4;
 /**
  * Using static inner class
  * thread safe, lazy loading
- *
+ * Recommended!!!!!
  */
 public class SingletonTest6 {
     public static void main(String[] args) {
