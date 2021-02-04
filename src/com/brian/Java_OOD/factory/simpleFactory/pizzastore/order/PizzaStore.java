@@ -15,6 +15,9 @@ public class PizzaStore {
 //        new OrderPizza();
 
         //2. simple factory
-        new OrderPizza(new SimplePizzaFactory());
+//        new OrderPizza(new SimplePizzaFactory());
+
+        //3. using static SimplePizzaFactory
+        new OrderPizza2();
     }
 }

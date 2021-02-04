@@ -8,7 +8,7 @@ import com.brian.Java_OOD.factory.simpleFactory.pizzastore.pizza.Pizza;
 public class SimplePizzaFactory {
 
     //based on order type, return the Pizza object
-    public Pizza createPizza(String orderType){
+    public static Pizza createPizza(String orderType){
         System.out.println("using the simpleFactory mode");
         Pizza pizza = null;
         if(orderType.equals("greek")){
@@ -21,7 +21,6 @@ public class SimplePizzaFactory {
             pizza = new PepperPizza();
             pizza.setName("pepper pizza");
         }
-
         return pizza;
     }
 }
