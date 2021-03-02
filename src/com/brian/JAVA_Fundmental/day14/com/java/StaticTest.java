@@ -13,9 +13,14 @@ package com.brian.JAVA_Fundmental.day14.com.java;
  *    : static attribute is shared by all the instances of the object
  *    : non-static attribute belongs to specific instance of object
  *
- * static attributes are loaded when class are loaded
+ * 3. 3.1 static attributes are loaded when class are loaded, can be called by "Class.attribute"
+ *    3.2 static attributes are loaded before the creation of instances
+ *    3.3 since class is only loaded once, static attribute will only be created once
+ *    3.4 class attribute,
+ *    For example, System.out, Math.PI
  *
  * 3. using static to describe code blocks
+ *
  */
 public class StaticTest {
     public static void main(String[] args) {
