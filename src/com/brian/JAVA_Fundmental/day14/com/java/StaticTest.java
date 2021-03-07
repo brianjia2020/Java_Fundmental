@@ -19,8 +19,12 @@ package com.brian.JAVA_Fundmental.day14.com.java;
  *    3.4 class attribute,
  *    For example, System.out, Math.PI
  *
- * 3. using static to describe code blocks
+ * 4. using static to describe code blocks
+ *    4.1 static method are loaded with the class, so that can be called by "Class.method"
  *
+ * 5. when to use static key word
+ *    5.1 common method shared by all instances
+ *    5.2 utility class, Arrays, Collections, System
  */
 public class StaticTest {
     public static void main(String[] args) {
