@@ -24,7 +24,7 @@ public class FinalTest {
  *
  */
 final class FinalA {
-    final int width = 2;
+    static final int width = 2;
 }
 
 class AA {
