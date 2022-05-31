@@ -1,4 +1,4 @@
-package source;
+package com.brian.JAVA_Fundmental.JavaThread.source;
 
 public class ThreadTest {
     public static void main(String[] args) {

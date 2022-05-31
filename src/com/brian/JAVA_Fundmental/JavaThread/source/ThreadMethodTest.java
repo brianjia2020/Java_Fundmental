@@ -1,4 +1,4 @@
-package source;
+package com.brian.JAVA_Fundmental.JavaThread.source;
 
 /**
  * to test the thread class method
