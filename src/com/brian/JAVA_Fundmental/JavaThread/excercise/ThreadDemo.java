@@ -1,4 +1,4 @@
-package excercise;
+package com.brian.JAVA_Fundmental.JavaThread.excercise;
 
 public class ThreadDemo {
     public static void main(String[] args) {
