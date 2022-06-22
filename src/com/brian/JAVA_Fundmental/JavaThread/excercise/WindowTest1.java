@@ -13,6 +13,7 @@ public class WindowTest1 {
         t2.setName("window2");
         t3.setName("window3");
         t1.start();
+        System.out.println(t1.getState());
         t2.start();
         t3.start();
     }
